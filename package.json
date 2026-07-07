@@ -1,0 +1,24 @@
+﻿{
+  "name": "financeos",
+  "version": "0.1.0",
+  "private": true,
+  "packageManager": "pnpm@11.10.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "turbo run dev",
+    "build": "turbo run build",
+    "lint": "turbo run lint",
+
+    "db:generate": "pnpm --filter @financeos/database run db:generate",
+    "db:migrate": "pnpm --filter @financeos/database run db:migrate",
+    "db:push": "pnpm --filter @financeos/database run db:push",
+    "db:studio": "pnpm --filter @financeos/database run db:studio",
+    "db:reset": "pnpm --filter @financeos/database run db:reset"
+  },
+  "devDependencies": {
+    "turbo": "^2.10.4",
+    "typescript": "^5.9.3"
+  }
+}
