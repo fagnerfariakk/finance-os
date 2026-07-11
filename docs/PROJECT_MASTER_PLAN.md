@@ -1,12 +1,11 @@
-```markdown
 # FinanceOS — Project Master Plan
 
 **Documento:** docs/PROJECT_MASTER_PLAN.md
-**Versão:** 1.0
+**Versão:** 1.2
 **Status:** Aprovado
 **Epic:** EPIC-000
-**Task:** TASK-000.02
-**Última Atualização:** 2026-07-09
+**Task:** TASK-000.15
+**Última Atualização:** 2026-07-10
 
 ---
 
@@ -32,8 +31,10 @@ A proposta de valor do FinanceOS é oferecer uma plataforma que automatiza a imp
 
 # 3. Estado Atual
 
-- Projeto em desenvolvimento.
-- Arquitetura baseline aprovada (ver ARCHITECTURE_BASELINE).
+- EPIC-000 encontra-se **concluída**.
+- A documentação oficial do FinanceOS encontra-se consolidada.
+- A estrutura documental estabelecida durante a EPIC-000 passa a ser a **Single Source of Truth (SSOT)** oficial do projeto.
+- O desenvolvimento futuro deverá seguir obrigatoriamente esta documentação.
 - Plataforma de engenharia (monorepo, qualidade, infraestrutura local) em consolidação.
 - Desenvolvimento guiado por EPICs, com entrega incremental via PRs escopados.
 
@@ -47,10 +48,11 @@ A proposta de valor do FinanceOS é oferecer uma plataforma que automatiza a imp
 | PROJECT_MASTER_PLAN | Ponto de entrada oficial do projeto; hub de navegação para toda a documentação. | Arquitetura de Software |
 | ARCHITECTURE_BASELINE | Consolidação factual do estado arquitetural aprovado: stack, camadas, estrutura do monorepo. | Arquitetura de Software |
 | DOCUMENT_HIERARCHY | Política de Single Source of Truth e hierarquia entre documentos. | Arquitetura de Software |
-| TECH_STACK | Detalhamento de tecnologias e versões, quando além do escopo do baseline. | Arquitetura de Software |
+| DOCUMENTATION_GUIDE | Estratégia de evolução, ciclo de vida e convenções da documentação do projeto. | Arquitetura de Software |
+| TECH_STACK (ainda não criado) | Detalhamento de tecnologias e versões, quando além do escopo do baseline. | Arquitetura de Software |
 | DATABASE | Schema de dados, modelos e estratégia de migrations. | Engenharia de Dados |
 | API | Contratos de endpoints, Route Handlers e Server Actions. | Engenharia |
-| BUSINESS_RULES | Regras de negócio financeiras do FinanceOS. | Produto / Arquitetura |
+| BUSINESS_RULES (ainda não criado) | Regras de negócio financeiras do FinanceOS. | Produto / Arquitetura |
 | CODING_STANDARDS | Convenções de código e padrões de teste. | Engenharia |
 | ROADMAP | Sequenciamento de EPICs e fases de entrega. | Produto |
 | AI_CONTEXT | Contexto operacional para agentes de IA envolvidos no projeto. | Arquitetura de Software |
@@ -63,17 +65,15 @@ A proposta de valor do FinanceOS é oferecer uma plataforma que automatiza a imp
 
 # 5. Fluxo Oficial de Consulta
 
-```
 README
-   ↓
+↓
 PROJECT_MASTER_PLAN
-   ↓
+↓
 ARCHITECTURE_BASELINE
-   ↓
+↓
 Documento especializado
-   ↓
+↓
 Código
-```
 
 ---
 
@@ -135,4 +135,3 @@ Antes de iniciar qualquer implementação, os seguintes documentos devem ser con
 - Deve sempre referenciar documentos especializados em vez de repetir seu conteúdo.
 - Deve permanecer estável ao longo do projeto — mudanças frequentes aqui indicam que conteúdo específico demais foi incluído indevidamente.
 - Mudanças estruturais relevantes no projeto devem ser refletidas primeiro na documentação oficial correspondente antes de serem consideradas parte do estado atual.
-```

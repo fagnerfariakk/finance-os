@@ -1,12 +1,11 @@
-```markdown
 # FinanceOS — Roadmap
 
 **Documento:** docs/ROADMAP.md
-**Versão:** 1.0
+**Versão:** 1.1
 **Status:** Aprovado
 **Epic:** EPIC-000
-**Task:** TASK-000.07
-**Última Atualização:** 2026-07-09
+**Task:** TASK-000.15
+**Última Atualização:** 2026-07-10
 
 ---
 
@@ -30,8 +29,8 @@ O roadmap é **estratégico**, não operacional: ele indica a ordem e o agrupame
 
 # 3. Estado Atual
 
-- **EPIC-000** em execução — governança e consolidação documental do projeto.
-- Plataforma documental em consolidação, seguindo a hierarquia definida em DOCUMENT_HIERARCHY.
+- **EPIC-000** concluída — governança e consolidação documental do projeto.
+- Plataforma documental consolidada, seguindo a hierarquia definida em DOCUMENT_HIERARCHY.
 - Plataforma de engenharia (monorepo, infraestrutura local, qualidade) estabilizada.
 
 ---
@@ -40,7 +39,7 @@ O roadmap é **estratégico**, não operacional: ele indica a ordem e o agrupame
 
 | EPIC | Objetivo | Status |
 |---|---|---|
-| EPIC-000 | Governança e documentação | Em execução |
+| EPIC-000 | Governança e documentação | Concluída |
 | EPIC-001 | Plataforma de Engenharia | Estabilizada |
 | EPIC-002 | Infraestrutura Compartilhada | Backlog |
 | EPIC-003 | Persistência e Banco de Dados | Em execução |
@@ -92,4 +91,12 @@ EPICs posteriores dependem da consolidação das EPICs anteriores dentro da mesm
 Novas EPICs poderão ser adicionadas a este roadmap conforme o projeto evoluir. Mudanças de prioridade entre EPICs já listadas são permitidas.
 
 A estrutura macro deste documento — organização por EPIC e agrupamento em macrofases — deve permanecer estável ao longo do projeto, mesmo quando o conteúdo específico das EPICs for ajustado.
-```
+
+---
+
+# 9. Histórico
+
+- EPIC-000 concluída.
+- Documentation Freeze realizado.
+- Baseline documental versão 1.0 estabelecida.
+- Todas as próximas EPICs deverão preservar a política de Single Source of Truth.
