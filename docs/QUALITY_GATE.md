@@ -2,11 +2,11 @@
 # FinanceOS — Quality Gate
 
 **Documento:** docs/QUALITY_GATE.md
-**Versão:** 1.0
+**Versão:** 1.2
 **Status:** Aprovado
-**Epic:** EPIC-000
-**Task:** TASK-000.06
-**Última Atualização:** 2026-07-09
+**Epic:** EPIC-001
+**Task:** TASK-001.6.04
+**Última Atualização:** 2026-07-13
 
 ---
 
@@ -38,6 +38,7 @@ Nenhuma entrega deve ser considerada concluída apenas porque "funciona". Funcio
 | Arquitetura | Sim | A entrega deve respeitar as decisões registradas em ARCHITECTURE_BASELINE, sem introduzir desvio não aprovado. |
 | Sem conflitos | Sim | Nenhum conflito documental, arquitetural ou de escopo pode permanecer sem ser reportado. |
 | Sem arquivos temporários | Sim | Nenhum arquivo de uso temporário, debug ou gerado acidentalmente pode integrar a entrega. |
+| Document Validation | Sim | Executar `powershell -ExecutionPolicy Bypass -File tools/validate-docs.ps1` (ver TOOLS). Nenhum erro crítico (`FAIL`) é permitido; avisos (`WARNING`) são permitidos conforme a política documental. |
 
 ---
 
@@ -47,6 +48,7 @@ Nenhuma entrega deve ser considerada concluída apenas porque "funciona". Funcio
 - ☐ Lint executado
 - ☐ Testes executados (quando existirem)
 - ☐ Documentação atualizada
+- ☐ Document Validation executado (`validate-docs.ps1` sem erros críticos)
 - ☐ Escopo respeitado
 - ☐ Nenhum arquivo temporário
 - ☐ Nenhum segredo versionado
@@ -76,6 +78,7 @@ Toda entrega deve ser acompanhada das seguintes evidências:
 - Resultado do build.
 - Resultado do lint.
 - Resultado dos testes (quando aplicável).
+- Resultado da Document Validation (`validate-docs.ps1`).
 - Lista de arquivos alterados.
 - Riscos conhecidos identificados durante a execução.
 
