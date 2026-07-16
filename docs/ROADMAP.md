@@ -1,11 +1,11 @@
 # FinanceOS — Roadmap
 
 **Documento:** docs/ROADMAP.md
-**Versão:** 1.1
+**Versão:** 1.2
 **Status:** Aprovado
-**Epic:** EPIC-000
-**Task:** TASK-000.15
-**Última Atualização:** 2026-07-10
+**Epic:** EPIC-001
+**Task:** TASK-001.99
+**Última Atualização:** 2026-07-13
 
 ---
 
@@ -40,7 +40,7 @@ O roadmap é **estratégico**, não operacional: ele indica a ordem e o agrupame
 | EPIC | Objetivo | Status |
 |---|---|---|
 | EPIC-000 | Governança e documentação | Concluída |
-| EPIC-001 | Plataforma de Engenharia | Estabilizada |
+| EPIC-001 | Plataforma de Engenharia | Concluída |
 | EPIC-002 | Infraestrutura Compartilhada | Backlog |
 | EPIC-003 | Persistência e Banco de Dados | Em execução |
 | EPIC-004 | Autenticação e Autorização | Backlog |
@@ -100,3 +100,7 @@ A estrutura macro deste documento — organização por EPIC e agrupamento em ma
 - Documentation Freeze realizado.
 - Baseline documental versão 1.0 estabelecida.
 - Todas as próximas EPICs deverão preservar a política de Single Source of Truth.
+- EPIC-001 concluída.
+- Plataforma de engenharia consolidada.
+- Ferramentas oficiais de governança implementadas.
+- Plataforma pronta para desenvolvimento funcional.
