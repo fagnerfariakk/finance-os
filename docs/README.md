@@ -40,6 +40,7 @@ finance-os/
 | PROJECT_MASTER_PLAN | [docs/PROJECT_MASTER_PLAN.md](docs/PROJECT_MASTER_PLAN.md) |
 | ARCHITECTURE_BASELINE | [docs/architecture/ARCHITECTURE_BASELINE.md](docs/architecture/ARCHITECTURE_BASELINE.md) |
 | DOCUMENT_HIERARCHY | [docs/architecture/DOCUMENT_HIERARCHY.md](docs/architecture/DOCUMENT_HIERARCHY.md) |
+| DOCUMENTATION_GUIDE | [docs/DOCUMENTATION_GUIDE.md](docs/DOCUMENTATION_GUIDE.md) |
 | ROADMAP | [docs/ROADMAP.md](docs/ROADMAP.md) |
 | DATABASE | [docs/database/DATABASE.md](docs/database/DATABASE.md) |
 | API | [docs/api/API.md](docs/api/API.md) |
@@ -48,6 +49,7 @@ finance-os/
 | AI_TEAM | [docs/AI_TEAM.md](docs/AI_TEAM.md) |
 | AI_WORKFLOW | [docs/AI_WORKFLOW.md](docs/AI_WORKFLOW.md) |
 | QUALITY_GATE | [docs/QUALITY_GATE.md](docs/QUALITY_GATE.md) |
+| TOOLS | [docs/TOOLS.md](docs/TOOLS.md) |
 | SETUP | [docs/SETUP.md](docs/SETUP.md) |
 
 ---

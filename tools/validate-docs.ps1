@@ -44,6 +44,7 @@ $RequiredDocuments = @(
     "docs/PROJECT_MASTER_PLAN.md",
     "docs/architecture/ARCHITECTURE_BASELINE.md",
     "docs/architecture/DOCUMENT_HIERARCHY.md",
+    "docs/DOCUMENTATION_GUIDE.md",
     "docs/ROADMAP.md",
     "docs/database/DATABASE.md",
     "docs/api/API.md",
@@ -52,6 +53,7 @@ $RequiredDocuments = @(
     "docs/AI_TEAM.md",
     "docs/AI_WORKFLOW.md",
     "docs/QUALITY_GATE.md",
+    "docs/TOOLS.md",
     "docs/SETUP.md"
 )
 

@@ -2,11 +2,11 @@
 # FinanceOS — AI Workflow
 
 **Documento:** docs/AI_WORKFLOW.md
-**Versão:** 1.0
+**Versão:** 1.1
 **Status:** Aprovado
 **Epic:** EPIC-000
 **Task:** TASK-000.05
-**Última Atualização:** 2026-07-09
+**Última Atualização:** 2026-07-16
 
 ---
 
@@ -91,6 +91,7 @@ Checklist de validação antes do reporte:
 - ☐ Build
 - ☐ Lint
 - ☐ Testes (quando existirem)
+- ☐ Document Validation (powershell -ExecutionPolicy Bypass -File tools/validate-docs.ps1)
 - ☐ Revisão da documentação
 - ☐ Escopo respeitado
 - ☐ Nenhum conflito oculto

@@ -1,11 +1,11 @@
 # FinanceOS — Ferramentas de Engenharia
 
-**Documento:** docs/tools/TOOLS.md
-**Versão:** 1.0
+**Documento:** docs/TOOLS.md
+**Versão:** 1.1
 **Status:** Aprovado
 **Epic:** EPIC-001
 **Task:** TASK-001.6.02
-**Última Atualização:** 2026-07-13
+**Última Atualização:** 2026-07-16
 
 ---
 
