@@ -1,11 +1,11 @@
 # FinanceOS — Project Master Plan
 
 **Documento:** docs/PROJECT_MASTER_PLAN.md
-**Versão:** 1.2
+**Versão:** 1.3
 **Status:** Aprovado
 **Epic:** EPIC-000
 **Task:** TASK-000.15
-**Última Atualização:** 2026-07-10
+**Última Atualização:** 2026-07-16
 
 ---
 
@@ -35,7 +35,7 @@ A proposta de valor do FinanceOS é oferecer uma plataforma que automatiza a imp
 - A documentação oficial do FinanceOS encontra-se consolidada.
 - A estrutura documental estabelecida durante a EPIC-000 passa a ser a **Single Source of Truth (SSOT)** oficial do projeto.
 - O desenvolvimento futuro deverá seguir obrigatoriamente esta documentação.
-- Plataforma de engenharia (monorepo, qualidade, infraestrutura local) em consolidação.
+- EPIC-001 — Plataforma de Engenharia (monorepo, qualidade e infraestrutura local) concluída.
 - Desenvolvimento guiado por EPICs, com entrega incremental via PRs escopados.
 
 ---
@@ -95,9 +95,10 @@ Detalhes técnicos de cada camada não são repetidos aqui — ver ARCHITECTURE_
 Visão macro de EPICs. Detalhamento de escopo, entregas e status de cada EPIC é responsabilidade do documento ROADMAP.
 
 - **EPIC-000** — Governança e consolidação documental do projeto.
-- **EPIC-001** — Plataforma de engenharia (monorepo, infraestrutura, qualidade).
+- **EPIC-001** — Plataforma de Engenharia (monorepo, infraestrutura, qualidade) — concluída.
 - **EPIC-002** — *(planejado — detalhamento em ROADMAP)*
-- **EPIC-003** — Modelagem de domínio de identidade e autorização.
+- **EPIC-003** — Persistência, schema e modelo de Identity: RBAC, multi-tenancy e AuditLog.
+- **EPIC-004** — Autenticação runtime: login, sessão, JWT e OAuth.
 - *(demais EPICs, cobrindo os módulos funcionais principais do FinanceOS — Contas, Transações, Importadores, Orçamento, Investimentos, Inteligência — serão listados e detalhados em ROADMAP à medida que forem formalizados)*
 
 ---

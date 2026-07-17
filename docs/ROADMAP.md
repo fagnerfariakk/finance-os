@@ -1,11 +1,11 @@
 # FinanceOS — Roadmap
 
 **Documento:** docs/ROADMAP.md
-**Versão:** 1.2
+**Versão:** 1.3
 **Status:** Aprovado
 **Epic:** EPIC-001
 **Task:** TASK-001.99
-**Última Atualização:** 2026-07-13
+**Última Atualização:** 2026-07-16
 
 ---
 
@@ -42,8 +42,8 @@ O roadmap é **estratégico**, não operacional: ele indica a ordem e o agrupame
 | EPIC-000 | Governança e documentação | Concluída |
 | EPIC-001 | Plataforma de Engenharia | Concluída |
 | EPIC-002 | Infraestrutura Compartilhada | Backlog |
-| EPIC-003 | Persistência e Banco de Dados | Em execução |
-| EPIC-004 | Autenticação e Autorização | Backlog |
+| EPIC-003 | Persistência, schema e modelo de Identity: RBAC, multi-tenancy e AuditLog | Em execução |
+| EPIC-004 | Autenticação runtime: login, sessão, JWT e OAuth | Backlog |
 | EPIC-005 | Core Financeiro | Backlog |
 | EPIC-006 | Importadores | Backlog |
 | EPIC-007 | Dashboard | Backlog |

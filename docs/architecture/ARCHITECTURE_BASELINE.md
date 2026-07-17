@@ -1,11 +1,11 @@
 # FinanceOS — Architecture Baseline
 
 **Documento:** docs/architecture/ARCHITECTURE_BASELINE.md
-**Versão:** 1.0
+**Versão:** 1.2
 **Status:** Aprovado
-**Epic:** EPIC-001
-**Task:** TASK-001.5.02
-**Última Atualização:** 2026-07-12
+**Epic:** EPIC-003
+**Task:** TASK-003.5.01
+**Última Atualização:** 2026-07-16
 
 ---
 
@@ -90,8 +90,12 @@ O FinanceOS adota **BFF (Backend for Frontend) implementado via Next.js App Rout
 - **Localização:** `packages/database`, encapsulando schema, migrations e client (`@finance-os/database`).
 - **Migrations:** exclusivamente via Prisma Migrate (`prisma migrate dev` / `prisma migrate deploy`), conforme já registrado em DATABASE — nenhuma outra estratégia de migration é utilizada.
 - **Cache:** Redis 8, como camada de dados voláteis, separada da persistência primária.
+- **Domínio Identity:** já implementado no schema (`packages/database/prisma/schema.prisma`) — models `Tenant`, `User`, `Role`, `Permission`, `UserRole`, `RolePermission` e `AuditLog`.
+- **Multi-tenancy:** já implementada na camada de dados — isolamento por `tenantId` nos models `User`, `Role` e `AuditLog`, com `Tenant` como entidade raiz.
+- **RBAC (Role-Based Access Control):** já implementado na camada de dados — `Role` e `Permission` relacionados via as tabelas de junção `UserRole` e `RolePermission`.
+- **AuditLog:** já faz parte da persistência oficial, registrando `resource`, `action`, `payload` e metadados de execução por tenant/usuário.
 
-Modelagem de entidades, relacionamentos e regras específicas de dados (ex.: soft delete, chaves estrangeiras, auditoria) são responsabilidade de **DATABASE** — não repetidas aqui.
+Modelagem detalhada de entidades, relacionamentos e regras específicas de dados (ex.: soft delete, chaves estrangeiras, auditoria) é responsabilidade de **DATABASE** — não repetida aqui.
 
 ---
 
@@ -125,8 +129,9 @@ Princípios já registrados em documentos oficiais existentes, consolidados aqui
 - Erros internos nunca expõem detalhes de implementação, stack traces ou informação sensível (já registrado em API Seção 7 e CODING_STANDARDS Seção 7).
 - Logs não devem expor dados sensíveis, independentemente do nível de severidade (já registrado em CODING_STANDARDS Seção 8).
 - Integridade e auditabilidade de operações financeiras são princípio de projeto (ver Seção 2).
+- O modelo de dados de identidade, autorização (RBAC) e multi-tenancy já está implementado na camada de persistência (ver Seção 6) — não é mais uma pendência de modelagem.
 
-**Mecanismo concreto de autenticação/autorização será definido durante EPIC-004** — API Seção 6 declara explicitamente que essa é "uma decisão arquitetural a ser registrada separadamente quando tomada". Este documento não a antecipa (ver Seção 12).
+**EPIC-004 definirá exclusivamente o mecanismo de autenticação em tempo de execução** (ex.: fluxo de login, gestão de sessão, tokens JWT, OAuth) — a modelagem de dados de Identity, RBAC e multi-tenancy já está registrada como decisão em vigor (ver Seção 10), e não faz parte do escopo remanescente de EPIC-004.
 
 ---
 
@@ -139,15 +144,19 @@ Princípios já registrados em documentos oficiais existentes, consolidados aqui
 | Redis como camada de cache/dados voláteis | Aprovada e em vigor |
 | Turborepo + PNPM workspaces como base do monorepo | Aprovada e em vigor |
 | Documentação legada (formato antigo, referências a NestJS) arquivada em `docs/archives/legacy-v0/` | Aprovada — aplicação via TASK-001.5.01 |
-| Mecanismo de autenticação/autorização | A definir durante EPIC-004 |
-| Biblioteca/ferramenta de logging estruturado | A definir durante EPIC-001 |
+| Modelo de dados de Identity (`Tenant`, `User`, `Role`, `Permission`, `UserRole`, `RolePermission`) | Aprovada e em vigor — implementado em `packages/database` |
+| RBAC (Role-Based Access Control) como modelo de autorização | Aprovada e em vigor — implementado na camada de dados |
+| Multi-tenancy via `Tenant`, com isolamento por `tenantId` | Aprovada e em vigor — implementado na camada de dados |
+| `AuditLog` como parte da persistência oficial | Aprovada e em vigor |
+| Mecanismo de autenticação em tempo de execução (login, sessão, JWT, OAuth) | A definir durante EPIC-004 |
+| Biblioteca/ferramenta de logging estruturado | A definir durante EPIC-012 |
 | Estratégia concreta de versionamento de API | A definir quando necessário |
 
 ---
 
 # 11. Evolução
 
-Este documento registra apenas o estado atual — não antecipa funcionalidades futuras. A evolução planejada do projeto é responsabilidade exclusiva de **ROADMAP**, que já lista, entre outras, EPIC-004 (Autenticação e Autorização), EPIC-010 (Open Finance) e EPIC-012 (Observabilidade) como fases futuras ainda em backlog.
+Este documento registra apenas o estado atual — não antecipa funcionalidades futuras. A evolução planejada do projeto é responsabilidade exclusiva de **ROADMAP**, que já lista, entre outras, EPIC-004 (Autenticação runtime), EPIC-010 (Open Finance) e EPIC-012 (Observabilidade) como fases futuras ainda em backlog.
 
 Áreas de expansão já oficialmente previstas em outros documentos aprovados (referenciadas, não detalhadas aqui): Open Finance, importadores, APIs públicas, webhooks e integrações bancárias (API Seção 10); evolução para modelo SaaS multiusuário (PROJECT_MASTER_PLAN Seção 1).
 
@@ -159,8 +168,8 @@ Quando qualquer uma dessas áreas for efetivamente decidida e implementada, este
 
 Itens explicitamente identificados como não decididos, registrados aqui por transparência (permitido por DOCUMENT_HIERARCHY Seção 8, que admite seções de pendências como exceção à regra de "somente decisões já tomadas"):
 
-- Mecanismo concreto de autenticação/autorização (A definir durante EPIC-004).
-- Ferramenta/biblioteca de logging estruturado (A definir durante EPIC-001).
+- Mecanismo concreto de autenticação runtime (A definir durante EPIC-004).
+- Ferramenta/biblioteca de logging estruturado (A definir durante EPIC-012).
 - Ferramenta de observabilidade (A definir durante EPIC-012).
 - Estratégia concreta de versionamento de contrato de API (A definir quando necessário).
 
