@@ -1,11 +1,11 @@
 # FinanceOS — Roadmap
 
 **Documento:** docs/ROADMAP.md
-**Versão:** 1.3
+**Versão:** 1.4
 **Status:** Aprovado
-**Epic:** EPIC-001
-**Task:** TASK-001.99
-**Última Atualização:** 2026-07-16
+**Epic:** EPIC-003
+**Task:** TASK-REC-003
+**Última Atualização:** 2026-07-29
 
 ---
 
@@ -32,6 +32,8 @@ O roadmap é **estratégico**, não operacional: ele indica a ordem e o agrupame
 - **EPIC-000** concluída — governança e consolidação documental do projeto.
 - Plataforma documental consolidada, seguindo a hierarquia definida em DOCUMENT_HIERARCHY.
 - Plataforma de engenharia (monorepo, infraestrutura local, qualidade) estabilizada.
+- **EPIC-003** concluída — persistência, schema e modelo de Identity consolidados, incluindo RBAC, multi-tenancy e AuditLog.
+- Próxima etapa da Fundação: **EPIC-004 — Autenticação runtime**.
 
 ---
 
@@ -42,7 +44,7 @@ O roadmap é **estratégico**, não operacional: ele indica a ordem e o agrupame
 | EPIC-000 | Governança e documentação | Concluída |
 | EPIC-001 | Plataforma de Engenharia | Concluída |
 | EPIC-002 | Infraestrutura Compartilhada | Backlog |
-| EPIC-003 | Persistência, schema e modelo de Identity: RBAC, multi-tenancy e AuditLog | Em execução |
+| EPIC-003 | Persistência, schema e modelo de Identity: RBAC, multi-tenancy e AuditLog | Concluída |
 | EPIC-004 | Autenticação runtime: login, sessão, JWT e OAuth | Backlog |
 | EPIC-005 | Core Financeiro | Backlog |
 | EPIC-006 | Importadores | Backlog |
@@ -104,3 +106,5 @@ A estrutura macro deste documento — organização por EPIC e agrupamento em ma
 - Plataforma de engenharia consolidada.
 - Ferramentas oficiais de governança implementadas.
 - Plataforma pronta para desenvolvimento funcional.
+- EPIC-003 concluída.
+- Persistência, schema e modelo de Identity (Tenant, User, Role, Permission, UserRole, RolePermission, AuditLog), RBAC e multi-tenancy auditados e implementados.
