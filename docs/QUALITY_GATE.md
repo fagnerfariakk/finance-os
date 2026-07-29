@@ -2,11 +2,11 @@
 # FinanceOS — Quality Gate
 
 **Documento:** docs/QUALITY_GATE.md
-**Versão:** 1.2
+**Versão:** 1.3
 **Status:** Aprovado
-**Epic:** EPIC-001
-**Task:** TASK-001.6.04
-**Última Atualização:** 2026-07-13
+**Epic:** EPIC-003
+**Task:** TASK-REC-004
+**Última Atualização:** 2026-07-29
 
 ---
 
@@ -68,6 +68,7 @@ Uma entrega é reprovada quando apresenta, entre outras, as seguintes situaçõe
 - Presença de código morto ou comentado sem justificativa.
 - Introdução de dependências desnecessárias ao escopo da TASK.
 - Alterações sem justificativa clara ou rastreável à TASK correspondente.
+- Document Validation com resultado `FAIL`.
 
 ---
 
