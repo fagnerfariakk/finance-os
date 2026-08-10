@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -10,139 +7,97 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// ─────────────────────────────────────────────
-// Tenant
-// ─────────────────────────────────────────────
+//
+// ENUMS
+//
 
-model Tenant {
-  id        String   @id @default(uuid())
-  name      String
-  slug      String   @unique
-  isActive  Boolean  @default(true)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  users     User[]
-  roles     Role[]
-  auditLogs AuditLog[]
-
-  @@map("tenants")
+enum AccountType {
+  CHECKING
+  SAVINGS
+  CREDIT
 }
 
-// ─────────────────────────────────────────────
-// User
-// ─────────────────────────────────────────────
+enum TransactionType {
+  INCOME
+  EXPENSE
+}
+
+enum CategoryType {
+  INCOME
+  EXPENSE
+}
+
+//
+// MODELS
+//
 
 model User {
-  id           String    @id @default(uuid())
-  tenantId     String
-  email        String
-  passwordHash String
-  isActive     Boolean   @default(true)
-  createdAt    DateTime  @default(now())
-  updatedAt    DateTime  @updatedAt
-  deletedAt    DateTime?
-
-  tenant    Tenant     @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  userRoles UserRole[]
-  auditLogs AuditLog[]
-
-  @@unique([tenantId, email])
-  @@map("users")
-}
-
-// ─────────────────────────────────────────────
-// Role
-// ─────────────────────────────────────────────
-
-model Role {
   id          String   @id @default(uuid())
-  tenantId    String
-  name        String
-  description String?
-  isActive    Boolean  @default(true)
+  name        String?  //
+  email       String   @unique
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 
-  tenant          Tenant           @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  userRoles       UserRole[]
-  rolePermissions RolePermission[]
-
-  @@unique([tenantId, name])
-  @@map("roles")
+  accounts     Account[]
+  transactions Transaction[]
+  categories   Category[]
 }
 
-// ─────────────────────────────────────────────
-// Permission
-// ─────────────────────────────────────────────
-
-model Permission {
-  id          String   @id @default(uuid())
-  resource    String
-  action      String
-  description String?
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-
-  rolePermissions RolePermission[]
-
-  @@unique([resource, action])
-  @@map("permissions")
-}
-
-// ─────────────────────────────────────────────
-// Junction: User ↔ Role
-// ─────────────────────────────────────────────
-
-model UserRole {
+model Account {
+  id        String      @id @default(uuid())
   userId    String
-  roleId    String
-  createdAt DateTime @default(now())
+  name      String
+  type      AccountType
+  balance   Decimal     @default(0)
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
-  role Role @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  transactions Transaction[]
 
-  @@id([userId, roleId])
-  @@map("user_roles")
+  @@index([userId])
 }
 
-// ─────────────────────────────────────────────
-// Junction: Role ↔ Permission
-// ─────────────────────────────────────────────
+model Transaction {
+  id          String           @id @default(uuid())
+  userId      String
+  accountId   String
+  categoryId  String?
+  type        TransactionType
+  amount      Decimal
+  description String?
+  occurredAt  DateTime
 
-model RolePermission {
-  roleId       String
-  permissionId String
-  createdAt    DateTime @default(now())
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
 
-  role       Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
-  permission Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  account   Account   @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  category  Category? @relation(fields: [categoryId], references: [id])
 
-  @@id([roleId, permissionId])
-  @@map("role_permissions")
+  @@index([userId])
+  @@index([accountId])
+  @@index([categoryId])
+  @@index([occurredAt])
 }
 
-// ─────────────────────────────────────────────
-// AuditLog
-// ─────────────────────────────────────────────
+model Category {
+  id         String        @id @default(uuid())
+  userId     String
+  name       String
+  type       CategoryType
+  parentId   String?
 
-model AuditLog {
-  id         String   @id @default(uuid())
-  tenantId   String
-  userId     String?
-  resource   String
-  resourceId String?
-  action     String
-  payload    Json?
-  ipAddress  String?
-  userAgent  String?
-  createdAt  DateTime @default(now())
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
 
-  tenant Tenant @relation(fields: [tenantId], references: [id], onDelete: Cascade)
-  user   User?  @relation(fields: [userId], references: [id], onDelete: SetNull)
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@index([tenantId, resource, action])
-  @@index([tenantId, userId])
-  @@index([createdAt])
-  @@map("audit_logs")
+  parent      Category?    @relation("CategoryHierarchy", fields: [parentId], references: [id])
+  children    Category[]   @relation("CategoryHierarchy")
+
+  transactions Transaction[]
+
+  @@index([userId])
+  @@index([parentId])
 }
